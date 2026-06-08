@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resultados - Jogo de Digitação</title>
+    <link rel="stylesheet" href="/styles/style.css" />
+  </head>
+  <body>
+
+    <nav class="navbar-meio">
+      <ul>
+        <li><a href="/index.html">Início</a></li>
+        <li><a href="/telas/tutorial.html">Tutorial</a></li>
+        <li><a href="/telas/placar.html">Placar</a></li>
+      </ul>
+    </nav>
+
+    <main class="conteudo">
+      <div class="caixa-placar">
+
+        <h1>Resultados</h1>
+        <p class="subtitulo-placar">Veja suas métricas de performance e registre seu nome no placar.</p>
+
+        <section class="pontuacao-container">
+          <p class="pontos-grandes">2.650</p>
+          <p class="pontos-label">PONTOS TOTAIS</p>
+        </section>
+
+        <section class="progresso-container">
+          <label for="progresso-frase">Conclusão da frase</label>
+          <progress id="progresso-frase" max="100" value="75">75%</progress>
+        </section>
+
+        <section class="detalhes-container">
+          <h3>Estatísticas</h3>
+          <ul>
+            <li>⏱️ <strong>Tempo de digitação:</strong> 43 segundos</li>
+            <li>⌨️ <strong>Caracteres corretos:</strong> 180</li>
+            <li>✅ <strong>Precisão:</strong> 92%</li>
+          </ul>
+        </section>
+
+        <section class="salvar-nick-container">
+          <label for="nome-jogador">Informe seu nome para salvar no placar</label>
+          <input id="nome-jogador" class="input-nick" type="text" maxlength="20" placeholder="Digite seu nome aqui" />
+          <a href="/telas/placar.html" class="btn btn--verde">Enviar para o Placar</a>
+        </section>
+
+        <nav class="acoes-placar">
+          <a href="/telas/jogo.html" class="btn btn--azul">Jogar Novamente</a>
+          <a href="/telas/placar.html" class="btn btn--verde">Ver Placar</a>
+        </nav>
+
+      </div>
+    </main>
+
+    <footer class="rodape">
+      <p>© 2026 Jogo de Digitação. Desenvolvido com ⚡ por Bruno & Daniel</p>
+    </footer>
+
+  </body>
+</html>

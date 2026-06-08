@@ -19,34 +19,52 @@
     <main class="conteudo">
       <div class="caixa-placar">
 
-        <h1>Fim de Jogo!</h1>
-        <p class="subtitulo-placar">Veja o seu desempenho:</p>
+        <h1>Placar</h1>
+        <p class="subtitulo-placar">Ranking global dos jogadores.</p>
 
-        <!-- Pontuação Principal -->
-        <section class="pontuacao-container">
-          <p class="pontos-grandes">2.650</p>
-          <p class="pontos-label">PONTOS TOTAIS</p>
+        <section class="placar-geral-container">
+          <h2>Top 5 Jogadores</h2>
+          <table class="tabela-placar">
+            <thead>
+              <tr>
+                <th>Posição</th>
+                <th>Nome</th>
+                <th>Pontos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1º</td>
+                <td>Camila</td>
+                <td>3.250</td>
+              </tr>
+              <tr>
+                <td>2º</td>
+                <td>Lucas</td>
+                <td>2.980</td>
+              </tr>
+              <tr>
+                <td>3º</td>
+                <td>Eduardo</td>
+                <td>2.650</td>
+              </tr>
+              <tr>
+                <td>4º</td>
+                <td>Marina</td>
+                <td>2.480</td>
+              </tr>
+              <tr>
+                <td>5º</td>
+                <td>Rafaela</td>
+                <td>2.340</td>
+              </tr>
+            </tbody>
+          </table>
         </section>
 
-        <!-- Barra de Progresso da Frase -->
-        <section class="progresso-container">
-          <label for="progresso-frase">Conclusão da Frase (75%):</label>
-          <progress id="progresso-frase" max="100" value="75">75%</progress>
-        </section>
-
-        <!-- Detalhes da Partida -->
-        <section class="detalhes-container">
-          <h3>Dados da Partida</h3>
-          <ul>
-            <li>⏱️ <strong>Tempo Restante:</strong> 17 segundos</li>
-            <li>⌨️ <strong>Caracteres Corretos:</strong> 180</li>
-          </ul>
-        </section>
-
-        <!-- Ações -->
         <nav class="acoes-placar">
-          <a href="/telas/jogo.html" class="btn btn--azul">Jogar Novamente</a>
-          <a href="/telas/placar.html" class="btn btn--verde">Ver Placar Geral</a>
+          <a href="/telas/jogo.html" class="btn btn--azul">Jogar</a>
+          <a href="/index.html" class="btn btn--verde">Voltar ao Início</a>
         </nav>
 
       </div>
