@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Placar - Jogo de Digitação</title>
+    <link rel="stylesheet" href="/styles/style.css" />
+  </head>
+  <body>
+
+    <nav class="navbar-meio">
+      <ul>
+        <li><a href="/index.html">Início</a></li>
+        <li><a href="/telas/tutorial.html">Tutorial</a></li>
+        <li><a href="/telas/placar.html">Placar</a></li>
+      </ul>
+    </nav>
+
+    <main class="conteudo">
+      <div class="caixa-placar">
+
+        <h1>Fim de Jogo!</h1>
+        <p class="subtitulo-placar">Veja o seu desempenho:</p>
+
+        <!-- Pontuação Principal -->
+        <section class="pontuacao-container">
+          <p class="pontos-grandes">2.650</p>
+          <p class="pontos-label">PONTOS TOTAIS</p>
+        </section>
+
+        <!-- Barra de Progresso da Frase -->
+        <section class="progresso-container">
+          <label for="progresso-frase">Conclusão da Frase (75%):</label>
+          <progress id="progresso-frase" max="100" value="75">75%</progress>
+        </section>
+
+        <!-- Detalhes da Partida -->
+        <section class="detalhes-container">
+          <h3>Dados da Partida</h3>
+          <ul>
+            <li>⏱️ <strong>Tempo Restante:</strong> 17 segundos</li>
+            <li>⌨️ <strong>Caracteres Corretos:</strong> 180</li>
+          </ul>
+        </section>
+
+        <!-- Ações -->
+        <nav class="acoes-placar">
+          <a href="/telas/jogo.html" class="btn btn--azul">Jogar Novamente</a>
+          <a href="/telas/placar.html" class="btn btn--verde">Ver Placar Geral</a>
+        </nav>
+
+      </div>
+    </main>
+
+    <footer class="rodape">
+      <p>© 2026 Jogo de Digitação. Desenvolvido com ⚡ por Bruno & Daniel</p>
+    </footer>
+
+  </body>
+</html>

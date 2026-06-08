@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tutorial - Jogo de Digitação</title>
+    <link rel="stylesheet" href="/styles/style.css" />
+  </head>
+  <body>
+    <div class="navbar-meio">
+      <ul>
+        <li><a href="/index.html">Ínicio</a></li>
+        <li><a href="/telas/tutorial.html">Tutorial</a></li>
+        <li><a href="/telas/placar.html">Placar</a></li>
+      </ul>
+    </div>
+
+    <div class="conteudo">
+      <div class="conteudo-texto">
+        <h1>Como jogar!</h1>
+
+        <h2>Objetivo do Jogo</h2>
+        <ul>
+          <li>
+            O objetivo principal é digitar as palavras ou frases exibidas na
+            tela de forma rápida e correta antes que o tempo acabe ou que os
+            elementos acumulem na tela, acumulando a maior pontuação possível.
+          </li>
+        </ul>
+
+        <h2>Dinâmica de Jogo (Como Jogar)</h2>
+        <ul>
+          <li>
+            <strong>Início:</strong> O jogo começa com uma contagem regressiva
+            (3, 2, 1... Já!).
+          </li>
+          <li>
+            <strong>Ação:</strong> Palavras começam a aparecer na tela (podem
+            surgir no centro, cair como blocos ou correr horizontalmente).
+          </li>
+          <li>
+            <strong>Entrada:</strong> O jogador deve digitar a palavra
+            exatamente como ela aparece, respecting letras maiúsculas,
+            minúsculas, espaçamento, acentos e pontuação.
+          </li>
+          <li>
+            <strong>Confirmação:</strong> O desempenho é avaliado
+            automaticamente assim que a última letra é digitada corretamente, ou
+            após o jogador pressionar a tecla Espaço ou Enter.
+          </li>
+        </ul>
+
+        <h2>Modos de Jogo (Sugestões)</h2>
+        <ul>
+          <li>
+            <strong>Contra o Tempo (Time Attack):</strong> O jogador tem 60
+            segundos para digitar o maior número de palavras possível. Erros não
+            tiram vidas, mas tiram tempo ou pontos.
+          </li>
+        </ul>
+
+        <h2>Sistema de Pontuação por Frase e Tempo</h2>
+        <ul>
+          <li>
+            O resultado final do jogador será a soma de duas frentes: a
+            Precisão/Progresso na Frase e a Velocidade (Tempo Restante).
+          </li>
+          <li>
+            <strong>1. Pontuação de Progresso (A Frase):</strong> Em vez de
+            ganhar pontos apenas ao terminar, o jogador ganha pontos por cada
+            caractere ou palavra digitada corretamente dentro da frase longa.
+          </li>
+          <li>
+            <strong>Pontos por Caractere:</strong> +10 pontos para cada letra,
+            espaço ou pontuação digitado corretamente.
+          </li>
+          <li>
+            <strong>Métrica de Conclusão (%):</strong> Ao final dos 60 segundos,
+            o jogo calcula a porcentagem da frase que foi completada. Exemplo:
+            Se a frase tem 200 caracteres e o jogador digitou 150 antes do tempo
+            acabar, ele recebe os pontos dos caracteres e exibe na tela:
+            "Conclusão da Frase: 75%".
+          </li>
+        </ul>
+
+        <h2>Penalidades</h2>
+        <ul>
+          <li>
+            <strong>Bloqueio de Input:</strong> Se o jogador errar uma letra da
+            frase ou um espaçamento, o jogo "trava" naquela posição. O texto não
+            avança e o erro pisca em vermelho.
+          </li>
+          <li>
+            <strong>O Corretivo:</strong> O jogador é obrigado a apertar
+            Backspace para apagar o erro e digitar a letra certa. Isso consome o
+            recurso mais precioso dele: o tempo.
+          </li>
+        </ul>
+
+        <h2>Fim de Jogo e Placar</h2>
+        <ul>
+          <li>
+            <strong>Tela de Resultados:</strong> Assim que os 60 segundos terminam, 
+            você é direcionado para a tela de resultados onde verá o seu 
+            desempenho detalhado, incluindo a barra de progresso e os seus 
+            <strong>Pontos Totais</strong>.
+          </li>
+          <li>
+            <strong>Registrar Recorde:</strong> Se a sua pontuação for alta o suficiente, 
+            um campo de texto será exibido para você digitar o seu nome ou apelido (Nick) 
+            e enviar o seu resultado diretamente para o <strong>Placar Geral</strong> do site!
+          </li>
+        </ul>
+
+      </div>
+    </div>
+
+    <footer class="rodape">
+      <p>© 2026 Jogo de Digitação. Desenvolvido com ⚡ por Bruno & Daniel</p>
+    </footer>
+  </body>
+</html>

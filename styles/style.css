@@ -1,0 +1,535 @@
+/* =========================================================
+   SUMÁRIO
+   1. Variáveis Globais
+   2. Reset e Configurações Gerais
+   3. Elementos Base (h1, p, img)
+   4. Botões
+   5. Navbar
+   6. Layout Principal (Título e Conteúdo)
+   7. Rodapé
+   8. Páginas de Texto (Tutorial)
+   9. Tela de Placar / Resultados
+   10. Tela de Jogo Interativa
+   11. Animações
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   1. VARIÁVEIS GLOBAIS
+--------------------------------------------------------- */
+:root {
+  /* Fundos */
+  --bg-principal:    #070a3d;
+  --bg-complementar: #3a0d7a;
+  --bg-sombra:       #05081a;
+
+  /* Textos */
+  --txt-principal:   #f5f8ff;
+  --txt-secundario:  #c8d4e8;
+
+  /* Paleta de Destaque */
+  --neon-azul:        #00afff;
+  --eletrico-azul:    #2d6dff;
+  --neon-roxo:        #7a2eff;
+  --destaque-amarelo: #ffc400;
+  --destaque-laranja: #ff8a00;
+  --verde:            #30eb7e;
+}
+
+
+/* ---------------------------------------------------------
+   2. RESET E CONFIGURAÇÕES GERAIS
+--------------------------------------------------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-principal);
+  color: var(--txt-principal);
+}
+
+
+/* ---------------------------------------------------------
+   3. ELEMENTOS BASE
+--------------------------------------------------------- */
+h1 {
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+  color: var(--destaque-amarelo);
+}
+
+p {
+  max-width: 500px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: var(--txt-secundario);
+}
+
+.banner-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  padding: 0 1rem;
+  margin-bottom: 20px;
+}
+
+
+/* ---------------------------------------------------------
+   4. BOTÕES
+   Classe base: .btn
+   Modificadores de cor: .btn--azul | .btn--verde
+--------------------------------------------------------- */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: var(--bg-sombra);
+  box-shadow: 0 0 15px rgba(0, 175, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.btn--azul {
+  background-color: var(--neon-azul);
+}
+
+.btn--verde {
+  background-color: var(--verde);
+}
+
+/* O hover é idêntico para ambas as variantes */
+.btn:hover {
+  background-color: var(--neon-roxo);
+  color: var(--txt-principal);
+  box-shadow: 0 0 20px rgba(122, 46, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Botão de voltar (estilo minimalista, sem fundo) */
+.btn-voltar {
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--txt-secundario);
+  transition: color 0.3s;
+}
+
+.btn-voltar:hover {
+  color: var(--destaque-laranja);
+}
+
+
+/* ---------------------------------------------------------
+   5. NAVBAR
+--------------------------------------------------------- */
+.navbar-meio {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: var(--bg-sombra);
+  border-bottom: 2px solid var(--neon-roxo);
+}
+
+.navbar-meio ul {
+  display: flex;
+  list-style-type: none;
+}
+
+.navbar-meio ul li a {
+  display: block;
+  padding: 16px 24px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  color: var(--txt-secundario);
+  transition: all 0.3s ease;
+}
+
+.navbar-meio ul li a:hover {
+  color: var(--neon-azul);
+  background-color: rgba(0, 175, 255, 0.1);
+}
+
+
+/* ---------------------------------------------------------
+   6. LAYOUT PRINCIPAL
+--------------------------------------------------------- */
+.titulo,
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.conteudo {
+  flex-grow: 1; /* Empurra o rodapé para o fundo da página */
+}
+
+.conteudo > .subtitulo {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+
+/* ---------------------------------------------------------
+   7. RODAPÉ
+--------------------------------------------------------- */
+.rodape {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  background-color: var(--bg-complementar);
+  border-top: 2px solid var(--neon-roxo);
+}
+
+.rodape p {
+  max-width: none; /* Cancela o limite de 500px herdado do 'p' base */
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--txt-secundario);
+}
+
+
+/* ---------------------------------------------------------
+   8. PÁGINAS DE TEXTO (TUTORIAL)
+--------------------------------------------------------- */
+
+/* Container com largura ideal para leitura */
+.conteudo-texto {
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  text-align: left;
+}
+
+.conteudo-texto h1 {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.conteudo-texto .subtitulo {
+  margin-bottom: 40px;
+  text-align: center;
+  color: var(--txt-secundario);
+}
+
+/* Títulos de seção com detalhe visual lateral */
+.conteudo-texto h2 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  padding-left: 10px;
+  font-size: 1.8rem;
+  color: var(--txt-principal);
+  border-left: 4px solid var(--neon-azul);
+}
+
+.conteudo-texto p {
+  max-width: 100%; /* Cancela o limite de 500px herdado do 'p' base */
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+/* Lista padrão do tutorial */
+.conteudo-texto ul {
+  margin-bottom: 25px;
+  margin-left: 20px;
+  list-style-type: disc;
+}
+
+.conteudo-texto ul li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  color: var(--txt-secundario);
+}
+
+/* Destaca termos-chave dentro do texto */
+.conteudo-texto strong {
+  color: var(--neon-azul);
+}
+
+
+/* ---------------------------------------------------------
+   9. TELA DE PLACAR / RESULTADOS
+--------------------------------------------------------- */
+.caixa-placar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  width: 100%;
+  max-width: 600px;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.subtitulo-placar {
+  margin-top: -15px; /* Aproxima o subtítulo do H1 acima */
+  color: var(--txt-secundario);
+}
+
+/* Container da pontuação em destaque */
+.pontuacao-container {
+  padding: 20px 40px;
+  border: 2px solid var(--neon-roxo);
+  border-radius: 12px;
+  background-color: var(--bg-sombra);
+  box-shadow: 0 0 15px rgba(122, 46, 255, 0.2);
+}
+
+.pontos-grandes {
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--destaque-amarelo);
+}
+
+.pontos-label {
+  margin-top: 5px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: var(--txt-secundario);
+}
+
+/* Barra de progresso */
+.progresso-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.progresso-container label {
+  font-weight: 500;
+  color: var(--txt-principal);
+}
+
+progress {
+  width: 100%;
+  height: 20px;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+progress::-webkit-progress-bar {
+  border-radius: 10px;
+  background-color: var(--bg-sombra);
+}
+
+progress::-webkit-progress-value {
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--neon-roxo), var(--neon-azul));
+  box-shadow: 0 0 10px var(--neon-azul);
+}
+
+/* Detalhes da partida */
+.detalhes-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  text-align: left;
+  border-radius: 8px;
+  background-color: rgba(58, 13, 122, 0.3);
+}
+
+.detalhes-container h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: var(--destaque-laranja);
+}
+
+.detalhes-container ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+}
+
+.detalhes-container ul li {
+  color: var(--txt-secundario);
+}
+
+.detalhes-container strong {
+  color: var(--txt-principal);
+}
+
+.acoes-placar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+/* Campo para salvar nick no placar geral */
+.salvar-nick-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  border: 1px solid rgba(122, 46, 255, 0.4);
+  border-radius: 8px;
+  background-color: rgba(58, 13, 122, 0.2);
+}
+
+.salvar-nick-container label {
+  font-size: 0.9rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: var(--destaque-amarelo);
+}
+
+.input-nick {
+  width: 100%;
+  padding: 10px 16px;
+  border: 2px solid var(--eletrico-azul);
+  border-radius: 8px;
+  outline: none;
+  font-size: 1rem;
+  text-align: center;
+  color: var(--txt-principal);
+  background-color: var(--bg-sombra);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-nick:focus {
+  border-color: var(--destaque-amarelo);
+  box-shadow: 0 0 12px rgba(255, 196, 0, 0.3);
+}
+
+
+/* ---------------------------------------------------------
+   10. TELA DE JOGO INTERATIVA
+--------------------------------------------------------- */
+.container-jogo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+}
+
+/* Painel de Status (Tempo e Pontos) */
+.painel-status {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px;
+  padding: 15px 30px;
+  border: 1px solid rgba(122, 46, 255, 0.3);
+  border-radius: 12px;
+  background-color: var(--bg-sombra);
+}
+
+.status-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.status-label {
+  margin-bottom: 5px;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: var(--txt-secundario);
+}
+
+.status-valor {
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+.neon-tempo {
+  color: var(--destaque-laranja);
+  text-shadow: 0 0 10px rgba(255, 138, 0, 0.4);
+}
+
+.neon-pontos {
+  color: var(--destaque-amarelo);
+  text-shadow: 0 0 10px rgba(255, 196, 0, 0.4);
+}
+
+/* Caixa de exibição da frase */
+.caixa-frase {
+  width: 100%;
+  padding: 30px;
+  border: 2px solid var(--bg-complementar);
+  border-radius: 12px;
+  font-size: 1.5rem;
+  line-height: 1.8;
+  letter-spacing: 1px;
+  text-align: left;
+  color: var(--txt-secundario);
+  background-color: rgba(58, 13, 122, 0.15);
+}
+
+/* Feedback visual das letras digitadas */
+.letra-certa {
+  color: var(--neon-azul);
+  text-shadow: 0 0 5px rgba(0, 175, 255, 0.3);
+}
+
+.letra-erro {
+  padding: 0 2px;
+  border-radius: 30px;
+  color: #ff4a4a;
+  background-color: rgba(255, 0, 0, 0.3);
+  animation: pisca-erro 0.5s infinite alternate;
+}
+
+/* Campo de digitação */
+.input-jogo {
+  width: 100%;
+  max-width: 600px;
+  padding: 15px 20px;
+  border: 2px solid var(--eletrico-azul);
+  border-radius: 8px;
+  outline: none;
+  font-size: 1.2rem;
+  text-align: center;
+  color: var(--txt-principal);
+  background-color: var(--bg-sombra);
+  transition: all 0.3s ease;
+}
+
+.input-jogo:focus {
+  border-color: var(--neon-azul);
+  box-shadow: 0 0 15px rgba(0, 175, 255, 0.3);
+}
+
+/* Efeito visual de erro/penalidade no input */
+.input-erro-efeito {
+  border-color: #ff4a4a !important;
+  box-shadow: 0 0 15px rgba(255, 74, 74, 0.4) !important;
+}
+
+
+/* ---------------------------------------------------------
+   11. ANIMAÇÕES
+--------------------------------------------------------- */
+@keyframes pisca-erro {
+  from { box-shadow: 0 0 0px transparent; }
+  to   { box-shadow: 0 0 8px #ff4a4a; }
+}
