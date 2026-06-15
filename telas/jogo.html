@@ -7,18 +7,8 @@
     <link rel="stylesheet" href="/styles/style.css" />
   </head>
   <body>
-    
-    <div class="navbar-meio">
-      <ul>
-        <li><a href="/index.html">Ínicio</a></li>
-        <li><a href="/telas/tutorial.html">Tutorial</a></li>
-        <li><a href="/telas/placar.html">Placar</a></li>
-      </ul>
-    </div>
-
     <main class="conteudo">
       <div class="container-jogo">
-        
         <div class="painel-status">
           <div class="status-item">
             <span class="status-label">TEMPO</span>
@@ -26,25 +16,23 @@
           </div>
           <div class="status-item">
             <span class="status-label">PONTOS</span>
-            <span class="status-valor neon-pontos">0230</span>
+            <span class="status-valor neon-pontos">0000</span>
           </div>
         </div>
 
-        <div class="caixa-frase">
-          <span class="letra-certa">O</span> <span class="letra-certa">o</span><span class="letra-certa">b</span><span class="letra-certa">j</span><span class="letra-certa">e</span><span class="letra-certa">t</span><span class="letra-certa">i</span><span class="letra-certa">v</span><span class="letra-certa">o</span> <span class="letra-certa">p</span><span class="letra-certa">r</span><span class="letra-certa">i</span><span class="letra-certa">n</span><span class="letra-certa">c</span><span class="letra-certa">i</span><span class="letra-certa">p</span><span class="letra-certa">a</span><span class="letra-certa">l</span> é digitar as palavras ou frases exibidas na tela de forma <span class="letra-erro">r</span>ápida e correta antes que o tempo acabe...
-        </div>
+        <div class="caixa-frase">A carregar frase...</div>
 
-        <input 
-          type="text" 
-          class="input-jogo input-erro-efeito" 
-          placeholder="Digite a frase aqui..." 
-          autofocus 
+        <input
+          type="text"
+          class="input-jogo"
+          placeholder="Digite a frase aqui..."
+          autofocus
+          autocomplete="off"
         />
 
         <div class="controles-jogo">
           <a class="btn-voltar" href="/index.html">Voltar para o Menu</a>
         </div>
-
       </div>
     </main>
 
@@ -52,5 +40,6 @@
       <p>© 2026 Jogo de Digitação. Desenvolvido com ⚡ por Bruno & Daniel</p>
     </footer>
 
+    <script src="/scripts/script.js"></script>
   </body>
 </html>

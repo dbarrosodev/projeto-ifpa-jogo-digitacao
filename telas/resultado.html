@@ -8,14 +8,6 @@
   </head>
   <body>
 
-    <nav class="navbar-meio">
-      <ul>
-        <li><a href="/index.html">Início</a></li>
-        <li><a href="/telas/tutorial.html">Tutorial</a></li>
-        <li><a href="/telas/placar.html">Placar</a></li>
-      </ul>
-    </nav>
-
     <main class="conteudo">
       <div class="caixa-placar">
 
@@ -23,21 +15,21 @@
         <p class="subtitulo-placar">Veja suas métricas de performance e registre seu nome no placar.</p>
 
         <section class="pontuacao-container">
-          <p class="pontos-grandes">2.650</p>
+          <p class="pontos-grandes">0</p>
           <p class="pontos-label">PONTOS TOTAIS</p>
         </section>
 
         <section class="progresso-container">
-          <label for="progresso-frase">Conclusão da frase</label>
-          <progress id="progresso-frase" max="100" value="75">75%</progress>
+          <label for=\"progresso-frase\">Conclusão da frase: 0%</label>
+          <progress id="progresso-frase" max="100" value="0">0%</progress>
         </section>
 
         <section class="detalhes-container">
           <h3>Estatísticas</h3>
           <ul>
-            <li>⏱️ <strong>Tempo de digitação:</strong> 43 segundos</li>
-            <li>⌨️ <strong>Caracteres corretos:</strong> 180</li>
-            <li>✅ <strong>Precisão:</strong> 92%</li>
+            <li>⏱️ <strong>Tempo limite:</strong> -- segundos</li>
+            <li>⌨️ <strong>Caracteres digitados:</strong> --</li>
+            <li>✅ <strong>Aproveitamento:</strong> --</li>
           </ul>
         </section>
 
@@ -49,7 +41,7 @@
 
         <nav class="acoes-placar">
           <a href="/telas/jogo.html" class="btn btn--azul">Jogar Novamente</a>
-          <a href="/telas/placar.html" class="btn btn--verde">Ver Placar</a>
+          <a href="/index.html" class="btn btn--verde">Voltar ao Início</a>
         </nav>
 
       </div>
@@ -59,5 +51,6 @@
       <p>© 2026 Jogo de Digitação. Desenvolvido com ⚡ por Bruno & Daniel</p>
     </footer>
 
+    <script src="/scripts/script.js"></script>
   </body>
 </html>

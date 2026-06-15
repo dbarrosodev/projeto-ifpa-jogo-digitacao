@@ -528,8 +528,8 @@ progress::-webkit-progress-value {
 
 /* Feedback visual das letras digitadas */
 .letra-certa {
-  color: var(--neon-azul);
-  text-shadow: 0 0 5px rgba(0, 175, 255, 0.3);
+  color: var(--verde);
+  text-shadow: 0 0 5px rgba(34, 235, 141, 0.788);
 }
 
 .letra-erro {
@@ -557,11 +557,12 @@ progress::-webkit-progress-value {
 
 .input-jogo:focus {
   border-color: var(--neon-azul);
-  box-shadow: 0 0 15px rgba(0, 175, 255, 0.3);
+  box-shadow: 0 0 15px rgba(34, 236, 186, 0.3);
 }
 
 /* Efeito visual de erro/penalidade no input */
-.input-erro-efeito {
+/* Procure esta regra no final da seção 10 do seu style.css e certifique-se de que está assim: */
+.input-jogo.input-erro-efeito {
   border-color: #ff4a4a !important;
   box-shadow: 0 0 15px rgba(255, 74, 74, 0.4) !important;
 }
