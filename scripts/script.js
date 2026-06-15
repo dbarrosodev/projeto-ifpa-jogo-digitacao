@@ -18,11 +18,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const path = window.location.pathname;
   const pagina = path.substring(path.lastIndexOf("/") + 1);
 
-  if (pagina === "/telas/jogo.html") {
+  // Antes: pagina === "/telas/jogo.html"  ❌
+  // Agora: pagina === "jogo.html"         ✅
+
+  if (pagina === "jogo.html") {
     inicializarJogo();
-  } else if (pagina === "/telas/resultado.html") {
+  } else if (pagina === "resultado.html") {
     inicializarResultados();
-  } else if (pagina === "/telas/placar.html") {
+  } else if (pagina === "placar.html") {
     exibirPlacar();
   }
 });
