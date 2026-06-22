@@ -16,10 +16,7 @@ if (!localStorage.getItem("placarJogo")) {
 // Identifica qual página está aberta e inicializa a função correta
 document.addEventListener("DOMContentLoaded", () => {
   const path = window.location.pathname;
-  const pagina = path.substring(path.lastIndexOf("/") + 1);
-
-  // Antes: pagina === "/telas/jogo.html"  ❌
-  // Agora: pagina === "jogo.html"         ✅
+  const pagina = path.split("/").pop().split("?")[0].split("#")[0];
 
   if (pagina === "jogo.html") {
     inicializarJogo();
