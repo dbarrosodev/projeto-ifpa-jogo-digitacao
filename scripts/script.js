@@ -32,7 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /* =========================================================
    LÓGICA DA TELA DE JOGO (jogo.html)
-==================================function inicializarJogo() {
+========================================================== */
+function inicializarJogo() {
   const elementoTempo = document.querySelector(".neon-tempo");
   const elementoErros = document.querySelector(".neon-erros");
   const elementoPontos = document.querySelector(".neon-pontos");
@@ -172,7 +173,7 @@ function finalizarPartida(pontosTotais, fraseAlvo, textoFinal, totalErros) {
   const caracteresCorretos = Math.min(textoFinal.length, fraseAlvo.length);
   const progressoPorcentagem = Math.min(
     Math.round((caracteresCorretos / fraseAlvo.length) * 100),
-    100
+    100,
   );
 
   // Guarda os dados da sessão atual para exibir na página de resultados
@@ -215,7 +216,7 @@ function inicializarResultados() {
 
   // Atualiza a lista de estatísticas
   const listaEstatistica = document.querySelectorAll(
-    ".detalhes-container ul li"
+    ".detalhes-container ul li",
   );
   if (listaEstatistica.length >= 4) {
     listaEstatistica[0].innerHTML = `⏱️ <strong>Tempo limite:</strong> 60 segundos`;
