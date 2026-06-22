@@ -507,6 +507,11 @@ progress::-webkit-progress-value {
   text-shadow: 0 0 10px rgba(255, 138, 0, 0.4);
 }
 
+.neon-erros {
+  color: #ff4a4a;
+  text-shadow: 0 0 10px rgba(255, 74, 74, 0.4);
+}
+
 .neon-pontos {
   color: var(--destaque-amarelo);
   text-shadow: 0 0 10px rgba(255, 196, 0, 0.4);

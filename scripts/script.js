@@ -32,9 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /* =========================================================
    LÓGICA DA TELA DE JOGO (jogo.html)
-========================================================= */
-function inicializarJogo() {
+==================================function inicializarJogo() {
   const elementoTempo = document.querySelector(".neon-tempo");
+  const elementoErros = document.querySelector(".neon-erros");
   const elementoPontos = document.querySelector(".neon-pontos");
   const caixaFrase = document.querySelector(".caixa-frase");
   const inputJogo = document.querySelector(".input-jogo");
@@ -44,6 +44,7 @@ function inicializarJogo() {
   // Garante que o input começa limpo e sem a classe de erro fixada no HTML
   inputJogo.value = "";
   inputJogo.classList.remove("input-erro-efeito");
+  if (elementoErros) elementoErros.textContent = "0";
 
   // Seleciona uma frase aleatória do banco
   const fraseAlvo =
@@ -51,6 +52,8 @@ function inicializarJogo() {
 
   let tempoRestante = 60;
   let pontos = 0;
+  let erros = 0;
+  let textoAnterior = "";
   let jogoAtivo = true;
 
   // Desenha a frase inicial no ecrã
@@ -66,7 +69,7 @@ function inicializarJogo() {
     if (tempoRestante <= 0) {
       clearInterval(cronometro);
       jogoAtivo = false;
-      finalizarPartida(pontos, fraseAlvo, inputJogo.value);
+      finalizarPartida(pontos, fraseAlvo, inputJogo.value, erros);
     }
   }, 1000);
 
@@ -76,12 +79,33 @@ function inicializarJogo() {
 
     const textoDigitado = inputJogo.value;
 
+    // Detecta se o usuário digitou um novo caractere e se ele é um erro
+    if (textoDigitado.length > textoAnterior.length) {
+      if (!fraseAlvo.startsWith(textoDigitado)) {
+        erros++;
+        if (elementoErros) {
+          elementoErros.textContent = erros;
+        }
+      }
+    }
+    textoAnterior = textoDigitado;
+
+    // Calcula o prefixo correto atual
+    let indiceErro = 0;
+    while (
+      indiceErro < textoDigitado.length &&
+      fraseAlvo[indiceErro] === textoDigitado[indiceErro]
+    ) {
+      indiceErro++;
+    }
+
     // Verifica se o texto digitado coincide com o início da frase alvo
     if (fraseAlvo.startsWith(textoDigitado)) {
       inputJogo.classList.remove("input-erro-efeito");
 
-      // Pontuação dinâmica: 10 pontos por caractere correto
-      pontos = textoDigitado.length * 10;
+      // Pontuação dinâmica: 10 pontos por caractere correto, menos 5 pontos por erro cometido
+      const pontosBase = textoDigitado.length * 10;
+      pontos = Math.max(0, pontosBase - erros * 5);
       elementoPontos.textContent = String(pontos).padStart(4, "0");
 
       // Atualiza o visual (letras certas ficam azuis)
@@ -93,11 +117,16 @@ function inicializarJogo() {
         jogoAtivo = false;
         // Bónus de velocidade: +100 pontos por cada segundo restante
         pontos += tempoRestante * 100;
-        finalizarPartida(pontos, fraseAlvo, textoDigitado);
+        finalizarPartida(pontos, fraseAlvo, textoDigitado, erros);
       }
     } else {
       // Se errou, aplica a classe visual de erro (borda vermelha)
       inputJogo.classList.add("input-erro-efeito");
+
+      // Pontuação dinâmica recalculada descontando a penalidade dos erros
+      const pontosBase = indiceErro * 10;
+      pontos = Math.max(0, pontosBase - erros * 5);
+      elementoPontos.textContent = String(pontos).padStart(4, "0");
 
       // Destaca em vermelho o caractere onde ocorreu o erro
       atualizarVisualFraseComErro(caixaFrase, fraseAlvo, textoDigitado);
@@ -139,7 +168,7 @@ function atualizarVisualFraseComErro(container, frase, digitado) {
   }
 }
 
-function finalizarPartida(pontosTotais, fraseAlvo, textoFinal) {
+function finalizarPartida(pontosTotais, fraseAlvo, textoFinal, totalErros) {
   const caracteresCorretos = Math.min(textoFinal.length, fraseAlvo.length);
   const progressoPorcentagem = Math.min(
     Math.round((caracteresCorretos / fraseAlvo.length) * 100),
@@ -151,6 +180,7 @@ function finalizarPartida(pontosTotais, fraseAlvo, textoFinal) {
     pontos: pontosTotais,
     progresso: progressoPorcentagem,
     caracteres: caracteresCorretos,
+    erros: totalErros,
   };
   sessionStorage.setItem("ultimaPartida", JSON.stringify(dadosPartida));
 
@@ -160,12 +190,13 @@ function finalizarPartida(pontosTotais, fraseAlvo, textoFinal) {
 
 /* =========================================================
    LÓGICA DA TELA DE RESULTADOS (resultado.html)
-========================================================= */
+ ========================================================= */
 function inicializarResultados() {
   const dados = JSON.parse(sessionStorage.getItem("ultimaPartida")) || {
     pontos: 0,
     progresso: 0,
     caracteres: 0,
+    erros: 0,
   };
 
   // Atualiza os pontos e a barra de progresso no HTML
@@ -186,10 +217,11 @@ function inicializarResultados() {
   const listaEstatistica = document.querySelectorAll(
     ".detalhes-container ul li"
   );
-  if (listaEstatistica.length >= 3) {
+  if (listaEstatistica.length >= 4) {
     listaEstatistica[0].innerHTML = `⏱️ <strong>Tempo limite:</strong> 60 segundos`;
     listaEstatistica[1].innerHTML = `⌨️ <strong>Caracteres digitados:</strong> ${dados.caracteres}`;
-    listaEstatistica[2].innerHTML = `✅ <strong>Aproveitamento:</strong> ${dados.progresso}%`;
+    listaEstatistica[2].innerHTML = `❌ <strong>Erros cometidos:</strong> ${dados.erros}`;
+    listaEstatistica[3].innerHTML = `✅ <strong>Aproveitamento:</strong> ${dados.progresso}%`;
   }
 
   // Configura o clique para salvar o Nickname no ranking
