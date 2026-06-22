@@ -181,8 +181,15 @@ function finalizarPartida(pontosTotais, fraseAlvo, textoFinal, totalErros) {
     100,
   );
   const caracteresDigitados = textoFinal.length;
+  const caracteresCorretosPrecisao = Math.max(
+    0,
+    caracteresDigitados - totalErros,
+  );
   const aproveitamento = caracteresDigitados
-    ? Math.max(0, Math.round((caracteresCorretos / caracteresDigitados) * 100))
+    ? Math.max(
+        0,
+        Math.round((caracteresCorretosPrecisao / caracteresDigitados) * 100),
+      )
     : 0;
 
   // Guarda os dados da sessão atual para exibir na página de resultados
