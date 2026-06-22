@@ -167,18 +167,31 @@ function atualizarVisualFraseComErro(container, frase, digitado) {
 }
 
 function finalizarPartida(pontosTotais, fraseAlvo, textoFinal, totalErros) {
-  const caracteresCorretos = Math.min(textoFinal.length, fraseAlvo.length);
+  let caracteresCorretos = 0;
+  while (
+    caracteresCorretos < textoFinal.length &&
+    caracteresCorretos < fraseAlvo.length &&
+    fraseAlvo[caracteresCorretos] === textoFinal[caracteresCorretos]
+  ) {
+    caracteresCorretos++;
+  }
+
   const progressoPorcentagem = Math.min(
     Math.round((caracteresCorretos / fraseAlvo.length) * 100),
     100,
   );
+  const caracteresDigitados = textoFinal.length;
+  const aproveitamento = caracteresDigitados
+    ? Math.max(0, Math.round((caracteresCorretos / caracteresDigitados) * 100))
+    : 0;
 
   // Guarda os dados da sessão atual para exibir na página de resultados
   const dadosPartida = {
     pontos: pontosTotais,
     progresso: progressoPorcentagem,
-    caracteres: caracteresCorretos,
+    caracteres: caracteresDigitados,
     erros: totalErros,
+    aproveitamento,
   };
   sessionStorage.setItem("ultimaPartida", JSON.stringify(dadosPartida));
 
@@ -219,7 +232,7 @@ function inicializarResultados() {
     listaEstatistica[0].innerHTML = `⏱️ <strong>Tempo limite:</strong> 60 segundos`;
     listaEstatistica[1].innerHTML = `⌨️ <strong>Caracteres digitados:</strong> ${dados.caracteres}`;
     listaEstatistica[2].innerHTML = `❌ <strong>Erros cometidos:</strong> ${dados.erros}`;
-    listaEstatistica[3].innerHTML = `✅ <strong>Aproveitamento:</strong> ${dados.progresso}%`;
+    listaEstatistica[3].innerHTML = `✅ <strong>Aproveitamento:</strong> ${dados.aproveitamento}%`;
   }
 
   // Configura o clique para salvar o Nickname no ranking
