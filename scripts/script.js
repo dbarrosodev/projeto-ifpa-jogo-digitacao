@@ -155,7 +155,7 @@ function finalizarPartida(pontosTotais, fraseAlvo, textoFinal) {
   sessionStorage.setItem("ultimaPartida", JSON.stringify(dadosPartida));
 
   // Redireciona para o ecrã de resultados
-  window.location.href = "/telas/resultado.html";
+  window.location.href = "resultado.html";
 }
 
 /* =========================================================
@@ -212,7 +212,7 @@ function inicializarResultados() {
       localStorage.setItem("placarJogo", JSON.stringify(placar));
 
       // Vai para a tela de classificação
-      window.location.href = "/telas/placar.html";
+      window.location.href = "placar.html";
     });
   }
 }
